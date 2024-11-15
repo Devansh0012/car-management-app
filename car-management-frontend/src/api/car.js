@@ -1,9 +1,26 @@
 import axios from "./axiosConfig";
 
-export const getCars = async () => axios.get("/cars");
-export const getCarById = async (id) => axios.get(`/cars/${id}`);
-export const createCar = async (carData) => axios.post("/cars", carData, {
-  headers: { "Content-Type": "multipart/form-data" },
-});
-export const updateCar = async (id, carData) => axios.put(`/cars/${id}`, carData);
-export const deleteCar = async (id) => axios.delete(`/cars/${id}`);
+export const getCars = async () => {
+  const response = await axios.get("/api/cars");
+  return response.data;
+};
+
+export const getCarById = async (id) => {
+  const response = await axios.get(`/api/cars/${id}`);
+  return response.data;
+};
+
+export const createCar = async (carData) => {
+  const response = await axios.post("/api/cars", carData);
+  return response.data;
+};
+
+export const updateCar = async (id, carData) => {
+  const response = await axios.put(`/api/cars/${id}`, carData);
+  return response.data;
+};
+
+export const deleteCar = async (id) => {
+  const response = await axios.delete(`/api/cars/${id}`);
+  return response.data;
+};
